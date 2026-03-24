@@ -1,1 +1,109 @@
-/* Add styles here */
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+}
+
+h1 {
+    color: #1a73e8;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.lotto-info {
+    margin-bottom: 2rem;
+    text-align: left;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-left: 4px solid #1a73e8;
+    border-radius: 4px;
+}
+
+#generate-btn {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+}
+
+#generate-btn:hover {
+    background-color: #155ab6;
+    transform: translateY(-2px);
+}
+
+#generate-btn:active {
+    transform: translateY(0);
+}
+
+.lotto-numbers-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.lotto-set {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(145deg, #e6e9f0, #f7f9fc);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.lotto-number {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4CAF50;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #generate-btn {
+        padding: 0.8rem 1.5rem;
+    }
+}
