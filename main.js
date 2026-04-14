@@ -7,7 +7,7 @@ const body = document.body;
 const currentTheme = localStorage.getItem('theme');
 if (currentTheme) {
   body.setAttribute('data-theme', currentTheme);
-  themeToggle.textContent = currentTheme === 'dark' ? '라이트 모드' : '다크 모드';
+  themeToggle.textContent = currentTheme === 'dark' ? '화이트 모드' : '다크 모드';
 }
 
 themeToggle.addEventListener('click', () => {
@@ -16,7 +16,7 @@ themeToggle.addEventListener('click', () => {
   
   body.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
-  themeToggle.textContent = newTheme === 'dark' ? '라이트 모드' : '다크 모드';
+  themeToggle.textContent = newTheme === 'dark' ? '화이트 모드' : '다크 모드';
 });
 
 generateBtn.addEventListener('click', () => {
