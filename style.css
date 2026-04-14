@@ -1,20 +1,43 @@
 
+:root {
+    --bg-color: #f0f2f5;
+    --container-bg: #fff;
+    --text-color: #333;
+    --primary-color: #1a73e8;
+    --secondary-bg: #f9f9f9;
+    --btn-hover: #155ab6;
+    --shadow-color: rgba(0,0,0,0.1);
+    --lotto-set-bg: linear-gradient(145deg, #e6e9f0, #f7f9fc);
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --primary-color: #bb86fc;
+    --secondary-bg: #2d2d2d;
+    --btn-hover: #9965f4;
+    --shadow-color: rgba(0,0,0,0.5);
+    --lotto-set-bg: linear-gradient(145deg, #2c2c2c, #3d3d3d);
+}
+
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
-    background: #fff;
+    background: var(--container-bg);
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 32px var(--shadow-color);
     text-align: center;
     max-width: 600px;
     width: 90%;
@@ -22,11 +45,11 @@ body {
 }
 
 .container:hover {
-    box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 48px var(--shadow-color);
 }
 
 h1 {
-    color: #1a73e8;
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
     font-size: 2rem;
 }
@@ -35,13 +58,13 @@ h1 {
     margin-bottom: 2rem;
     text-align: left;
     padding: 1rem;
-    background-color: #f9f9f9;
-    border-left: 4px solid #1a73e8;
+    background-color: var(--secondary-bg);
+    border-left: 4px solid var(--primary-color);
     border-radius: 4px;
 }
 
 #generate-btn {
-    background-color: #1a73e8;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 1rem 2rem;
@@ -50,11 +73,11 @@ h1 {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
     margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+    box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 #generate-btn:hover {
-    background-color: #155ab6;
+    background-color: var(--btn-hover);
     transform: translateY(-2px);
 }
 
@@ -73,9 +96,9 @@ h1 {
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    background: linear-gradient(145deg, #e6e9f0, #f7f9fc);
+    background: var(--lotto-set-bg);
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px var(--shadow-color);
 }
 
 .lotto-number {
@@ -91,6 +114,20 @@ h1 {
     align-items: center;
     margin: 0 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: all 0.3s ease;
 }
 
 /* Responsive adjustments */
