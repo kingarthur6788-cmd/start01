@@ -15,10 +15,13 @@
     <div class="lotto-section">
       <div class="lotto-info">
         <h2>한국 로또(6/45)</h2>
-        <p>1부터 45까지의 숫자 중 6개를 맞추는 방식입니다. 당첨 확률은 낮지만 당첨금이 매우 높습니다.</p>
+        <p>1부터 45까지의 숫자 중 6개를 맞추는 방식입니다.</p>
       </div>
-      <button id="generate-btn">로또 번호 5개 생성</button>
-      <div id="lotto-numbers" class="lotto-numbers-container"></div>
+      <div class="button-group">
+        <button id="generate-btn">로또 번호 5개 생성</button>
+        <button id="toggle-lotto-btn" class="toggle-btn" style="display: none;">번호 숨기기</button>
+      </div>
+      <div id="lotto-numbers" class="lotto-numbers-container collapsible show"></div>
     </div>
 
     <hr class="divider">
@@ -27,10 +30,13 @@
     <div class="pension-section">
       <div class="lotto-info">
         <h2>연금복권 720+</h2>
-        <p>1등 당첨 시 20년간 매월 700만원을 수령하는 방식입니다. 조(1~5)와 6자리 숫자를 맞추어야 합니다.</p>
+        <p>조(1~5)와 6자리 숫자를 맞추어야 합니다.</p>
       </div>
-      <button id="generate-pension-btn">연금복권 번호 5개 생성</button>
-      <div id="pension-numbers" class="lotto-numbers-container"></div>
+      <div class="button-group">
+        <button id="generate-pension-btn">연금복권 번호 5개 생성</button>
+        <button id="toggle-pension-btn" class="toggle-btn" style="display: none;">번호 숨기기</button>
+      </div>
+      <div id="pension-numbers" class="lotto-numbers-container collapsible show"></div>
     </div>
   </div>
   <script defer type="text/javascript" src="./main.js"></script>

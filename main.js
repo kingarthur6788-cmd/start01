@@ -1,5 +1,7 @@
 const generateBtn = document.getElementById('generate-btn');
 const generatePensionBtn = document.getElementById('generate-pension-btn');
+const toggleLottoBtn = document.getElementById('toggle-lotto-btn');
+const togglePensionBtn = document.getElementById('toggle-pension-btn');
 const lottoNumbersContainer = document.getElementById('lotto-numbers');
 const pensionNumbersContainer = document.getElementById('pension-numbers');
 const themeToggle = document.getElementById('theme-toggle');
@@ -22,9 +24,22 @@ themeToggle.addEventListener('click', () => {
   updateToggleText(newTheme);
 });
 
+// 열고 닫기 토글 기능
+function toggleContainer(container, button) {
+  const isShown = container.classList.toggle('show');
+  button.textContent = isShown ? '번호 숨기기' : '번호 보기';
+}
+
+toggleLottoBtn.addEventListener('click', () => toggleContainer(lottoNumbersContainer, toggleLottoBtn));
+togglePensionBtn.addEventListener('click', () => toggleContainer(pensionNumbersContainer, togglePensionBtn));
+
 // 로또 번호 생성
 generateBtn.addEventListener('click', () => {
   lottoNumbersContainer.innerHTML = '';
+  lottoNumbersContainer.classList.add('show');
+  toggleLottoBtn.style.display = 'block';
+  toggleLottoBtn.textContent = '번호 숨기기';
+  
   for (let i = 0; i < 5; i++) {
     const numbers = generateLottoNumbers().sort((a, b) => a - b);
     const setDiv = createNumberSetElement(numbers, 'lotto-number');
@@ -35,18 +50,20 @@ generateBtn.addEventListener('click', () => {
 // 연금복권 번호 생성
 generatePensionBtn.addEventListener('click', () => {
   pensionNumbersContainer.innerHTML = '';
+  pensionNumbersContainer.classList.add('show');
+  togglePensionBtn.style.display = 'block';
+  togglePensionBtn.textContent = '번호 숨기기';
+
   for (let i = 0; i < 5; i++) {
     const pensionData = generatePensionNumbers();
     const setDiv = document.createElement('div');
     setDiv.className = 'lotto-set';
 
-    // 조
     const groupDiv = document.createElement('div');
     groupDiv.className = 'lotto-number pension-group';
     groupDiv.textContent = `${pensionData.group}조`;
     setDiv.appendChild(groupDiv);
 
-    // 6자리 번호
     pensionData.numbers.forEach(num => {
       const numDiv = document.createElement('div');
       numDiv.className = 'lotto-number pension-number';
@@ -67,10 +84,10 @@ function generateLottoNumbers() {
 }
 
 function generatePensionNumbers() {
-  const group = Math.floor(Math.random() * 5) + 1; // 1~5조
+  const group = Math.floor(Math.random() * 5) + 1; 
   const numbers = [];
   for (let i = 0; i < 6; i++) {
-    numbers.push(Math.floor(Math.random() * 10)); // 0~9
+    numbers.push(Math.floor(Math.random() * 10)); 
   }
   return { group, numbers };
 }
